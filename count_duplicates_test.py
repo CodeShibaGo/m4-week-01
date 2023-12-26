@@ -1,18 +1,22 @@
 import unittest
 from count_duplicates import count_duplicates
 
-class TestCountDuplicates(unittest.TestCase):
-    def test_case1(self):
-        self.assertEqual(count_duplicates("Hello, World!"), 3)
+class TestCountingDuplicates(unittest.TestCase):
 
-    def test_case2(self):
-        self.assertEqual(count_duplicates("Programming"), 1)
+    def test_empty_string(self):
+        self.assertEqual(count_duplicates(""), 0)
 
-    def test_case3(self):
+    def test_no_duplicates(self):
+        self.assertEqual(count_duplicates("abcde"), 0)
+
+    def test_with_duplicates(self):
         self.assertEqual(count_duplicates("aabbcde"), 2)
 
-    def test_case4(self):
-        self.assertEqual(count_duplicates("12345"), 0)
+    def test_case_insensitive(self):
+        self.assertEqual(count_duplicates("AaBbCde"), 2)
 
-if __name__ == '__main__':
+    def test_mixed_cases(self):
+        self.assertEqual(count_duplicates("Indivisibilities"), 2)
+
+if __name__ == "__main__":
     unittest.main()

@@ -1,18 +1,12 @@
-def count_duplicates(s):
-    # 將字串轉為小寫，並初始化一個字典來記錄字符出現次數
-    s = s.lower()
+def count_duplicates(text):
+    # 將字串轉換為小寫，以忽略大小寫差異
+    text = text.lower()
+    # 使用字典來記錄每個字符的出現次數
     char_count = {}
+    for char in text:
+        # 增加或更新字符計數
+        char_count[char] = char_count.get(char, 0) + 1
 
-    # 遍歷字串中的每個字符
-    for char in s:
-        # 如果是字母字符，則更新字典中的計數
-        if char.isalpha():
-            if char in char_count:
-                char_count[char] += 1
-            else:
-                char_count[char] = 1
-
-    # 計算重複字符的數量，即字典中值大於1的鍵的數量
-    duplicates_count = sum(1 for count in char_count.values() if count > 1)
-
-    return duplicates_count
+    # 計算重複出現的字符數量
+    duplicates = sum(1 for count in char_count.values() if count > 1)
+    return duplicates
