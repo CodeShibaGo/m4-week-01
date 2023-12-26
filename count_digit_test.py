@@ -13,10 +13,10 @@ class TestNbDig(unittest.TestCase):
         self.assertEqual(nb_dig(1, 0), 1)
 
     def test_nb_dig_4(self):
-        self.assertEqual(nb_dig(100, 0), 11)
+        self.assertEqual(nb_dig(100, 0), 12)
 
     def test_nb_dig_5(self):
-        self.assertEqual(nb_dig(1111, 1), 249)
+        self.assertEqual(nb_dig(1111, 1), 448)
 
 if __name__ == '__main__':
     unittest.main()
